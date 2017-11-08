@@ -9,6 +9,8 @@ int main()
 	setlocale(LC_ALL, "rus");
 	int a, b, c, d, res1, res2;
 	float result;
+	char reply;
+
 
 	cout << "First fraction: ";
 	cin >> a >> b;
@@ -78,6 +80,8 @@ int main()
 		cout << "Wrong choise!" << endl;
 		break;
 	}
+	cout << "once more?(y/n)";
+		cin >> reply;
 	system("pause");
     return 0;
 }
