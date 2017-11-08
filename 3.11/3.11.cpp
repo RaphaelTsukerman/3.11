@@ -7,13 +7,25 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "rus");
+	int a, b, c, d, res1, res2;
+	float result;
 
-	cout << "First number: ";
-	int f1, sh1, p1, f, p, sh;
-	f = 0;
-	sh = 0;
-	p = 0;
-	cin >> f1 >> sh1 >> p1;
+	cout << "First fraction: ";
+	cin >> a >> b;
+	if (b==0)
+	{
+		cout << "Division by zero! Wrong!!!" << endl;
+		system("pause");
+		exit(0);
+	}
+	cout << "Second fraction: ";
+	cin >> c >> d;
+	if (d == 0)
+	{
+		cout << "Division by zero! Wrong!!!" << endl;
+		system("pause");
+		exit(0);
+	}
 
 	cout << "Operation (+, -, *, /): ";
 	char answer;
@@ -23,34 +35,42 @@ int main()
 	{
 	case '+':
 	{
-		cout << "Second number: ";
-		int f2, sh2, p2;
-		cin >> f2 >> sh2 >> p2;
-		
+		res1 = (a*d) + (b*c);
+		res2 = (b*d);
+		while ((res1%2==0) && (res2%2==0))
+		{
+			res1 /= 2;
+			res2 /= 2;
+		}
+		while ((res1 % 3 == 0) && (res2 % 3 == 0))
+		{
+			res1 /= 3;
+			res2 /= 3;
+		}
+		for (int i = 5; i < 1000; i++)
+		{
+			while ((res1 % i == 0) && (res2 % i == 0))
+			{
+				res1 /= i;
+				res2 /= i;
+			}
+		}
+		cout << "Result is " << res1 << "/" << res2 << endl;
 		break;
 	}
 	case '-':
 	{
-		cout << "Second number: ";
-		int f2, sh2, p2;
-		cin >> f2 >> sh2 >> p2;
-		
+		cout << "Result is " << (a*d) - (b*c) << "/" << (b*d) << endl;
 		break;
 	}
 	case '*':
 	{
-		cout << "Input factor: ";
-		int factor;
-		cin >> factor;
-		
+		cout << "Result is " << (a*c) << "/" << (b*d) << endl;
 		break;
 	}
 	case '/':
 	{
-		cout << "Input divider: ";
-		int divider;
-		cin >> divider;
-		
+		cout << "Result is " << (a*d) << "/" << (b*c) << endl;
 		break;
 	}
 
