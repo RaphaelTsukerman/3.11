@@ -144,7 +144,7 @@ int main()
 		}
 		do
 		{
-			cout << "once more?(y/n)";
+			cout << "once more?(y/n)"<<endl;
 			cin >> reply;
 		} while (reply != 'y' && reply != 'n');
 	}
